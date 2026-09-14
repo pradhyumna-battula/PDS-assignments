@@ -2,7 +2,7 @@
 using namespace std;
 
 char to_char(int n){
-    if(n >= 0 && n <= 9) return char(n + 48);
+		if(n >= 0 && n <= 9) return char(n + 48);
     else if(n >= 10) return char(n + 55);
     
 }
