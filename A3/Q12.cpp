@@ -1,8 +1,20 @@
 #include <iostream>
 using namespace std;
 
+enum trafic_light {RED, YELLOW, GREEN};
+
+void print_light(trafic_light tl) {
+    switch (tl) {
+        case 0:
+            cout << "RED";
+        case 1:
+            cout << "YELLOW";
+        case 2:
+            cout << "GREEN";
+    }
+}
+
 int main() {
-    enum trafic_light {RED, YELLOW, GREEN};
     trafic_light currunt_state;
     int input;
     cout << "Enter current state (0 for RED, 1 for YELLOW, 2 for GREEN): ";
@@ -22,11 +34,12 @@ int main() {
             next_state = RED;
             break;
         default:
-            cout << "invalid state input";
+            cout << "invalid state input ";
             return 0;
     }
     
-    cout << "next state: " << next_state;
+    cout << "next state: ";
+    print_light(next_state);
 
     return 0;
 }
