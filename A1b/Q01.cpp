@@ -10,7 +10,6 @@ int main() {
     long myLong;
     long long myLongLong;
 
-    cout << "=== Size Explorer ===\n";
     cout << "Size of int: " << sizeof(myInt) << " bytes\n";
     cout << "Size of float: " << sizeof(myFloat) << " bytes\n";
     cout << "Size of double: " << sizeof(myDouble) << " bytes\n";
