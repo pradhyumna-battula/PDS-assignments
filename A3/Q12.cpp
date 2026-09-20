@@ -7,10 +7,13 @@ void print_light(trafic_light tl) {
     switch (tl) {
         case 0:
             cout << "RED";
+            break;
         case 1:
             cout << "YELLOW";
+            break;
         case 2:
             cout << "GREEN";
+            break;
     }
 }
 
