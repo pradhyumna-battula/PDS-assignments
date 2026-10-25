@@ -1,48 +1,53 @@
 #include <iostream>
 using namespace std;
 
-void transpose(int mat[], int n) {
+void transpose(int mat[][100], int n) {
 	for(int i = 0; i < n; i++) {
 		for(int j = 0; j < n; j++) {
 			if(i >= j) {
-				int temp = mat[i + j * n];
-				mat[i + j * n] = mat[j + i * n];
-				mat[j + i * n] = temp;
+				int temp = mat[i][j];
+				mat[i][j] = mat[j][i];
+				mat[j][i] = temp;
 			}
 		}
 	}
 }
 
-void reverse(int mat[], int n) {
+void reverse(int mat[][100], int n) {
 	for(int j = 0; j < n; j++) {
-		for(int i = 0; i < (n + 1) / 2; i ++) {
-			int temp = mat[i + j * n];
-			mat[i + j * n] = mat[n - i - 1 + j * n];
-			mat[n - i - 1 + j * n] = temp;
+		for(int i = 0; i < (n + 1) / 2; i++) {
+			int temp = mat[j][i];
+			mat[j][i] = mat[j][n - i - 1];
+			mat[j][n - i - 1] = temp;
 		}
 	}
 }
 
-void display(int mat[], int n) {
+void display(int mat[][100], int n) {
 	for(int i = 0; i < n; i++) {
 		for(int j = 0; j < n; j++) {
-			cout << mat[j + i * n] << " \t";
+			cout << mat[i][j] << " \t";
 		}
 		cout << endl;
 	}
 }
 
-void rotate(int mat[], int n) {
-	transpose(mat,n);
-	reverse(mat,n);
+void rotate(int mat[][100], int n) {
+	transpose(mat, n);
+	reverse(mat, n);
 }
 
 int main() {
-	int mat[] = {1,2,3,4,5,6,7,8,9};
-	display(mat,3);
+	int mat[100][100] = {
+		{1, 2, 3},
+		{4, 5, 6},
+		{7, 8, 9}
+	};
+	
+	display(mat, 3);
 	cout << endl;
-	rotate(mat,3);
-	display(mat,3);
+	rotate(mat, 3);
+	display(mat, 3);
 
     return 0;
 }
